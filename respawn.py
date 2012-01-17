@@ -197,7 +197,7 @@ if __name__ == "__main__":
         print >>sys.stderr, "usage: %s COMMAND [ARGS]" % sys.argv[0]
         sys.exit(1)
     try:
-        APP_NAME = os.basename(sys.argv[0])
+        APP_NAME = os.path.basename(sys.argv[0])
         if sys.argv[1] == '--tell-pid':
             pidpath = sys.argv[2]
             Watcher(sys.argv[3], sys.argv[4:], pidpath).run()
