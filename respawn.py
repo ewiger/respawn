@@ -115,7 +115,7 @@ class Watcher(object):
                 syslog.syslog(syslog.LOG_NOTICE,
                     'saving child\'s pid into: %s' % self.pidpath)
                 tellpid(os.getpid(), self.pidpath)
-            os.execv(self.cmd, self.args)
+            os.execv(self.cmd,[self.name] + self.args)
         pids = pidof(self.cmd)
         if not pids or pid not in pids:
             raise Error("%s is not running!" % self.cmd)
